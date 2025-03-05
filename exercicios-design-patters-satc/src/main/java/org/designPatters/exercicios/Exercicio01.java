@@ -5,6 +5,7 @@ public class Exercicio01 {
     /*
 
     # Exercicio 01
+
     ## Converta um código que calcula a área de um retângulo usando funções para uma versão orientada a objetos.
 
     function calcularAreaRetangulo(largura: number, altura: number): number {
