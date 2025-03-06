@@ -24,6 +24,12 @@ public class Exercicio01 {
     private int largura;
     private int altura;
 
+    public void constructor(int largura, int altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
 
-
+    public static int calcularAreaRetangulo(int largura, int altura) {
+        return largura * altura;
+    }
 }
