@@ -1,6 +1,6 @@
-package org.designPatters.exercicios;
+package org.designPatters.primeiraListaExercicios;
 
-public class Exercicio01 {
+public class PrimeiraListaExercicio01 {
 
     /*
 
