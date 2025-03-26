@@ -2,35 +2,60 @@ package org.designPatters.primeiraListaExercicios;
 
 public class PrimeiraListaExercicio05 {
 
-    /*
+    public static void main(String[] args) {
+        Retangulos retangulos = new Retangulos(10, 5);
+        retangulos.exibirDetalhes();
 
-    # Exercicio 05
+        Circulo circulo = new Circulo(7);
+        circulo.exibirDetalhes();
+    }
+}
 
-    ## Calculadora de Formas Geométricas
-    User Story:
-    Como um estudante de matemática, eu quero poder calcular a área e o perímetro de diferentes formas geométricas, para que eu possa resolver problemas de geometria de forma rápida.
+class Retangulos {
+    private double largura;
+    private double altura;
 
-    ### Requisitos:
-    Crie uma classe Retangulo com os atributos:
-    - largura (number)
-    - altura (number)
+    public Retangulos(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
 
-    Adicione métodos para:
-    - Calcular a área (largura * altura).
-    - Calcular o perímetro (2 * (largura + altura)).
-    - Exibir os detalhes do retângulo (largura, altura, área e perímetro).
+    public double calcularArea() {
+        return largura * altura;
+    }
 
-    Crie uma classe Circulo com os atributos:
-    - raio (number)
+    public double calcularPerimetro() {
+        return 2 * (largura + altura);
+    }
 
-    Adicione métodos para:
-    - Calcular a área (Math.PI * raio * raio).
-    - Calcular o perímetro (2 * Math.PI * raio).
-    - Exibir os detalhes do círculo (raio, área e perímetro).
+    public void exibirDetalhes() {
+        System.out.println("Retângulo:");
+        System.out.println("Largura: " + largura);
+        System.out.println("Altura: " + altura);
+        System.out.println("Área: " + calcularArea());
+        System.out.println("Perímetro: " + calcularPerimetro());
+    }
+}
 
-    Teste o sistema criando um retângulo e um círculo, calculando suas áreas e perímetros, e exibindo os detalhes.
+class Circulo {
+    private double raio;
 
-    */
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
 
+    public double calcularArea() {
+        return Math.PI * raio * raio;
+    }
 
+    public double calcularPerimetro() {
+        return 2 * Math.PI * raio;
+    }
+
+    public void exibirDetalhes() {
+        System.out.println("Círculo:");
+        System.out.println("Raio: " + raio);
+        System.out.println("Área: " + calcularArea());
+        System.out.println("Perímetro: " + calcularPerimetro());
+    }
 }

@@ -1,5 +1,8 @@
 package org.designPatters.primeiraListaExercicios;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrimeiraListaExercicio04 {
 
     /*
@@ -30,4 +33,61 @@ public class PrimeiraListaExercicio04 {
     Teste o sistema criando algumas tarefas, marcando algumas como concluídas e exibindo a lista de tarefas.
 
     */
+
+    public static void main(String[] args) {
+        GerenciadorTarefas gerenciador = new GerenciadorTarefas();
+        gerenciador.adicionarTarefa("Estudar Java");
+        gerenciador.adicionarTarefa("Fazer exercícios de POO");
+        gerenciador.exibirTarefas();
+        gerenciador.marcarTarefaConcluida(0);
+        gerenciador.exibirTarefas();
+    }
+}
+
+class Tarefa {
+    private String descricao;
+    private boolean concluida;
+
+    public Tarefa(String descricao) {
+        this.descricao = descricao;
+        this.concluida = false;
+    }
+
+    public void marcarConcluida() {
+        this.concluida = true;
+    }
+
+    public void exibirDetalhes() {
+        System.out.println("Tarefa: " + descricao + " | Concluída: " + (concluida ? "Sim" : "Não"));
+    }
+}
+
+class GerenciadorTarefas {
+    private List<Tarefa> tarefas;
+
+    public GerenciadorTarefas() {
+        this.tarefas = new ArrayList<>();
+    }
+
+    public void adicionarTarefa(String descricao) {
+        tarefas.add(new Tarefa(descricao));
+        System.out.println("Tarefa \"" + descricao + "\" adicionada.");
+    }
+
+    public void marcarTarefaConcluida(int indice) {
+        if (indice >= 0 && indice < tarefas.size()) {
+            tarefas.get(indice).marcarConcluida();
+            System.out.println("Tarefa " + (indice + 1) + " marcada como concluída.");
+        } else {
+            System.out.println("Índice inválido.");
+        }
+    }
+
+    public void exibirTarefas() {
+        System.out.println("Lista de Tarefas:");
+        for (int i = 0; i < tarefas.size(); i++) {
+            System.out.print((i + 1) + ". ");
+            tarefas.get(i).exibirDetalhes();
+        }
+    }
 }

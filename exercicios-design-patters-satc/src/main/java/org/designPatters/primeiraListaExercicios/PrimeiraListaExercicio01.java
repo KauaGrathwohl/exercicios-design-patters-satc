@@ -21,15 +21,27 @@ public class PrimeiraListaExercicio01 {
 
     */
 
+    public static void main(String[] args) {
+        Retangulo retangulo = new Retangulo(10, 5);
+        retangulo.exibirArea();
+    }
+}
+
+class Retangulo {
     private int largura;
     private int altura;
 
-    public void constructor(int largura, int altura) {
+    public Retangulo(int largura, int altura) {
         this.largura = largura;
         this.altura = altura;
     }
 
-    public static int calcularAreaRetangulo(int largura, int altura) {
+    public int calcularArea() {
         return largura * altura;
+    }
+
+    public void exibirArea() {
+        int area = calcularArea();
+        System.out.println("A área do retângulo é: " + area);
     }
 }

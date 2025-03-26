@@ -2,28 +2,48 @@ package org.designPatters.primeiraListaExercicios;
 
 public class PrimeiraListaExercicio09 {
 
-    /*
+    public static void main(String[] args) {
+        Gerente gerente = new Gerente();
 
-    # Exercicio 09
+        Relatorio pdfRelatorio = new PdfRelatorio();
+        Relatorio excelRelatorio = new ExcelRelatorio();
+        Relatorio htmlRelatorio = new HtmlRelatorio();
 
-    ## Sistema de Relatórios
-    User Story:
-    Como um gerente de uma empresa, eu quero poder gerar relatórios em diferentes formatos (PDF, Excel, HTML), para que eu possa analisar os dados da forma que preferir.
+        String[] dados = {"Dado1", "Dado2", "Dado3"};
 
-    ### Requisitos:
-    Crie uma interface Relatorio com o metodo:
-    - gerar(dados: string[]): void - Deve gerar um relatório com base nos dados fornecidos.
+        gerente.solicitarRelatorio(pdfRelatorio, dados);
+        gerente.solicitarRelatorio(excelRelatorio, dados);
+        gerente.solicitarRelatorio(htmlRelatorio, dados);
+    }
+}
 
-    Implemente a interface em três classes:
-    - PdfRelatorio: Gera um relatório em PDF (exiba no console: "Gerando relatório em PDF com os dados: [dados]").
-    - ExcelRelatorio: Gera um relatório em Excel (exiba no console: "Gerando relatório em Excel com os dados: [dados]").
-    - HtmlRelatorio: Gera um relatório em HTML (exiba no console: "Gerando relatório em HTML com os dados: [dados]").
+interface Relatorio {
+    void gerar(String[] dados);
+}
 
-    Crie uma classe Gerente com o metodo:
-    - solicitarRelatorio(relatorio: Relatorio, dados: string[]) que usa a interface para gerar um relatório.
+class PdfRelatorio implements Relatorio {
+    @Override
+    public void gerar(String[] dados) {
+        System.out.println("Gerando relatório em PDF com os dados: " + String.join(", ", dados));
+    }
+}
 
-    Teste o sistema criando um gerente e gerando relatórios em diferentes formatos.
+class ExcelRelatorio implements Relatorio {
+    @Override
+    public void gerar(String[] dados) {
+        System.out.println("Gerando relatório em Excel com os dados: " + String.join(", ", dados));
+    }
+}
 
-    */
+class HtmlRelatorio implements Relatorio {
+    @Override
+    public void gerar(String[] dados) {
+        System.out.println("Gerando relatório em HTML com os dados: " + String.join(", ", dados));
+    }
+}
 
+class Gerente {
+    public void solicitarRelatorio(Relatorio relatorio, String[] dados) {
+        relatorio.gerar(dados);
+    }
 }
